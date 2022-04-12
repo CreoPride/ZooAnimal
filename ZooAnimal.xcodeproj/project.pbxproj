@@ -14,6 +14,8 @@
 		D1AEC17728060E8200FD0B2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1AEC17628060E8200FD0B2D /* Assets.xcassets */; };
 		D1AEC17A28060E8200FD0B2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1AEC17828060E8200FD0B2D /* LaunchScreen.storyboard */; };
 		D1AEC18328060EDB00FD0B2D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D1AEC18228060EDB00FD0B2D /* Alamofire */; };
+		D1AEC18528060F1500FD0B2D /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AEC18428060F1500FD0B2D /* Animal.swift */; };
+		D1AEC18728060FE000FD0B2D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AEC18628060FE000FD0B2D /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		D1AEC17628060E8200FD0B2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1AEC17928060E8200FD0B2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1AEC17B28060E8200FD0B2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1AEC18428060F1500FD0B2D /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		D1AEC18628060FE000FD0B2D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		D1AEC16C28060E8000FD0B2D /* ZooAnimal */ = {
 			isa = PBXGroup;
 			children = (
+				D1AEC18428060F1500FD0B2D /* Animal.swift */,
+				D1AEC18628060FE000FD0B2D /* NetworkManager.swift */,
 				D1AEC16D28060E8000FD0B2D /* AppDelegate.swift */,
 				D1AEC16F28060E8000FD0B2D /* SceneDelegate.swift */,
 				D1AEC17128060E8000FD0B2D /* ViewController.swift */,
@@ -147,6 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1AEC17228060E8000FD0B2D /* ViewController.swift in Sources */,
+				D1AEC18528060F1500FD0B2D /* Animal.swift in Sources */,
+				D1AEC18728060FE000FD0B2D /* NetworkManager.swift in Sources */,
 				D1AEC16E28060E8000FD0B2D /* AppDelegate.swift in Sources */,
 				D1AEC17028060E8000FD0B2D /* SceneDelegate.swift in Sources */,
 			);
