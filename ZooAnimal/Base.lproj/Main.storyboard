@@ -3,20 +3,21 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Zoo Animals-->
         <scene sceneID="tzC-BC-wh5">
             <objects>
-                <tableViewController id="ezA-0T-cWd" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AnimalsTableViewController" id="ezA-0T-cWd" customClass="AnimalsTableViewController" customModule="ZooAnimal" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ngI-5h-fQs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="1Kr-dA-Dc1" detailTextLabel="Tuo-gT-OQt" style="IBUITableViewCellStyleSubtitle" id="fP3-HQ-06G">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="animalCell" textLabel="1Kr-dA-Dc1" detailTextLabel="Tuo-gT-OQt" style="IBUITableViewCellStyleSubtitle" id="fP3-HQ-06G">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fP3-HQ-06G" id="3EJ-ns-br5">
@@ -39,6 +40,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XVF-dP-BB8" kind="show" id="nn3-2s-2Bb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -46,11 +50,56 @@
                             <outlet property="delegate" destination="ezA-0T-cWd" id="rHw-0x-bEc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="5R0-UU-oNp"/>
+                    <navigationItem key="navigationItem" title="Zoo Animals" id="5R0-UU-oNp">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Wcs-li-uzy"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdf-Cs-y5f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="429" y="-67"/>
+        </scene>
+        <!--Animal Info-->
+        <scene sceneID="bQX-VO-ifN">
+            <objects>
+                <viewController id="XVF-dP-BB8" customClass="AnimalViewController" customModule="ZooAnimal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fg2-sz-PuR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZZ-Uj-v0h">
+                                <rect key="frame" x="20" y="408" width="374" height="434"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="npe-IY-iqD">
+                                <rect key="frame" x="57" y="88" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="npe-IY-iqD" secondAttribute="height" multiplier="1:1" id="OCF-wf-FlQ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jNV-8K-qsz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="npe-IY-iqD" firstAttribute="centerX" secondItem="Fg2-sz-PuR" secondAttribute="centerX" id="7E9-9f-NWg"/>
+                            <constraint firstItem="jNV-8K-qsz" firstAttribute="trailing" secondItem="UZZ-Uj-v0h" secondAttribute="trailing" constant="20" id="87G-29-q6U"/>
+                            <constraint firstItem="npe-IY-iqD" firstAttribute="top" secondItem="jNV-8K-qsz" secondAttribute="top" id="OH8-p6-myW"/>
+                            <constraint firstItem="UZZ-Uj-v0h" firstAttribute="top" secondItem="npe-IY-iqD" secondAttribute="bottom" constant="20" id="Woe-uO-ssT"/>
+                            <constraint firstItem="jNV-8K-qsz" firstAttribute="bottom" secondItem="UZZ-Uj-v0h" secondAttribute="bottom" constant="20" id="Yjb-nq-EBL"/>
+                            <constraint firstItem="npe-IY-iqD" firstAttribute="width" secondItem="Fg2-sz-PuR" secondAttribute="width" multiplier="0.724638" id="ft9-Wg-gf1"/>
+                            <constraint firstItem="UZZ-Uj-v0h" firstAttribute="leading" secondItem="jNV-8K-qsz" secondAttribute="leading" constant="20" id="jSy-aS-AlZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Animal Info" largeTitleDisplayMode="never" id="bYn-P1-jlB"/>
+                    <connections>
+                        <outlet property="animalDescriptionLabel" destination="UZZ-Uj-v0h" id="cHy-kD-1Ca"/>
+                        <outlet property="animalImageView" destination="npe-IY-iqD" id="e5N-4F-01g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohj-nF-swx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182.608695652174" y="-52.232142857142854"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="10b-1c-QJE">

@@ -29,10 +29,8 @@ class NetworkManager {
                 case .success(let value):
                     guard let animalData = value as? [[String: Any]] else { return }
                     let animals = Animal.getAnimals(from: animalData)
-                    print(animals.description)
                     complition(.success(animals))
-                case .failure(let error):
-                    print(error)
+                case .failure(_):
                     complition(.failure(.decodingError))
                 }
             }
@@ -45,6 +43,22 @@ class NetworkManager {
             guard let data = try? Data(contentsOf: imageURL) else { return }
             DispatchQueue.main.async {
                 completion(data)
+            }
+        }
+    }
+
+    func fetchImage2(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+        guard let url = URL(string: url ?? "") else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else {
+                completion(.failure(.noData))
+                return
+            }
+            DispatchQueue.main.async {
+                completion(.success(imageData))
             }
         }
     }
