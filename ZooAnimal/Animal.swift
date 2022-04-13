@@ -44,4 +44,9 @@ struct Animal: Codable {
         imageLink = animalData["image_link"] as? String ?? ""
         id = animalData["id"] as? Int ?? 0
     }
+
+    static func getAnimals(from value: Any) -> [Animal] {
+        guard let animalData = value as? [[String: Any]] else { return [] }
+        return animalData.compactMap { Animal(animalData: $0) }
+    }
 }
