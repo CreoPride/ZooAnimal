@@ -16,6 +16,9 @@ class AnimalsTableViewController: UITableViewController {
         tableView.rowHeight = 60
         fetchAnimals()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
 
         // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +51,7 @@ class AnimalsTableViewController: UITableViewController {
             switch result {
             case .success(let animals):
                 self.animals = animals
+                self.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }
