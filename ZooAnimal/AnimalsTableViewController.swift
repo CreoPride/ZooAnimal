@@ -15,6 +15,7 @@ class AnimalsTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 60
         fetchAnimals()
+        tableView.reloadData()
     }
 
         // MARK: - Table view data source
@@ -29,15 +30,9 @@ class AnimalsTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.text = "Animal: \(animal.name)"
         content.secondaryText = "Latin name: \(animal.latinName)"
-        NetworkManager.shared.fetchImage2(from: animal.imageLink) { result in
-            switch result {
-            case .success(let data):
+        NetworkManager.shared.fetchImage(from: animal.imageLink) { data in
                 content.image = UIImage(data: data)
-            case .failure(let error):
-                print(error.localizedDescription)
             }
-        }
-        content.imageProperties.cornerRadius = 5
         cell.contentConfiguration = content
 
         return cell

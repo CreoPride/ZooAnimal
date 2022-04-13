@@ -1,9 +1,9 @@
-//
-//  NetworkManager.swift
-//  ZooAnimal
-//
-//  Created by Konstantin Fomenkov on 12.04.2022.
-//
+    //
+    //  NetworkManager.swift
+    //  ZooAnimal
+    //
+    //  Created by Konstantin Fomenkov on 12.04.2022.
+    //
 
 import Foundation
 import Alamofire
@@ -16,11 +16,11 @@ enum NetworkError: Error {
 
 class NetworkManager {
     static let shared = NetworkManager()
-
+    
     private let url = "https://zoo-animal-api.herokuapp.com/animals/rand/10"
-
+    
     private init() {}
-
+    
     func fetchData(complition: @escaping(Result<[Animal],NetworkError>) -> Void) {
         AF.request(url)
             .validate()
@@ -35,7 +35,7 @@ class NetworkManager {
                 }
             }
     }
-
+    
     func fetchImage(from url: String?, with completion: @escaping(Data) -> Void) {
         guard let stringURL = url else { return }
         guard let imageURL = URL(string: stringURL) else { return }
@@ -46,8 +46,8 @@ class NetworkManager {
             }
         }
     }
-
-    func fetchImage2(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+    
+    func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url ?? "") else {
             completion(.failure(.invalidURL))
             return

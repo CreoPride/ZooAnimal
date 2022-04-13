@@ -8,7 +8,6 @@
 import UIKit
 
 class AnimalViewController: UIViewController {
-
     @IBOutlet weak var animalImageView: UIImageView!
     @IBOutlet weak var animalDescriptionLabel: UILabel!
 
